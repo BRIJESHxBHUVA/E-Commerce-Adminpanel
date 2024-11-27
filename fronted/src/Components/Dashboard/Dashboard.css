@@ -1,0 +1,27 @@
+.dashboard{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 10px;
+    min-height: 100vh;
+}
+.dashboard .filter{
+    width: 15%;
+    height: 100vh;
+    background-color: white;
+    padding: 10px;
+}
+.dashboard .product{
+    height: 100vh;
+    padding: 50px;
+    width: 80%;
+    background-color: white;
+    overflow: auto;
+}
+.filter-option{
+    padding: 5px;
+    background-color: #f6f6f6;
+    margin: 10px 0px;
+    cursor: pointer;
+}

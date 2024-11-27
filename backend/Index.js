@@ -16,6 +16,7 @@ app.use('/product', require('./Routes/ProductRoutes'))
 app.use('/Images', express.static(path.join(__dirname, 'Images')))
 app.use('/Images/Category', express.static(path.join(__dirname, 'Images/Category')))
 app.use('/Images/Product', express.static(path.join(__dirname, 'Images/Product')))
+app.use('/Images/Admin', express.static(path.join(__dirname, 'Images/Admin')))
 
 app.listen(port, (err)=> {
     if(err){

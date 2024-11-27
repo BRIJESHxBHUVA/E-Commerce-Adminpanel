@@ -1,0 +1,87 @@
+.profile-page{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100%;
+    background-color: #1d2034ac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+.profile-box{
+    padding: 10px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+}
+.profile-box .close{
+    background-color: red;
+    padding: 0px 5px;
+    color: white;
+    position: absolute;
+    right: 2%;
+}
+.profile-box .delete{
+    background-color: black;
+    color: white;
+    padding: 0px 5px;
+    position: absolute;
+    right: 12%;
+    display: none;
+}
+.profile-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 0px;
+    border-bottom: 1px solid black;
+}
+.profile-header img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.profile-header h4{
+    font-size: 30px;
+    margin: 0px 10px;
+    color: #06bbcc;
+}
+.profile-body{
+    width: 100%;
+    margin: 20px 0px;
+}
+.profile-footer{
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.profile-footer button{
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    margin: 0px 3px;
+}
+
+
+@media only screen and (max-width: 480px){
+    .profile-box .delete{
+        display: block;
+    }
+    .del{
+        display: none;
+    }
+    .profile-header img{
+        height: 50px;
+        width: 50px;
+    }
+    .profile-header h4{
+        font-size: 25px;
+    }
+}

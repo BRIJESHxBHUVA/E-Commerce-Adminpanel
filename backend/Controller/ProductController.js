@@ -12,6 +12,7 @@ module.exports.addProduct = async(req, res)=> {
         const category = await Category.findById(req.body.category);
         const subcategory = await Category.findById(req.body.subcategory);
 
+
         if (!category || !subcategory) {
             return res.status(404).json({ success: false, message: 'Category or Subcategory not found' });
         }
@@ -32,8 +33,6 @@ module.exports.allProduct = async(req, res)=> {
         }
 
         res.status(200).json({success: true, message: 'Product get successfully', data})
-        console.log(data)
-        // console.log(data.subcategory.subcategory)
 
     } catch (error) {
         res.status(400).json({success: false, message: 'Error coming while get products ', error})
@@ -54,5 +53,40 @@ module.exports.deleteProduct = async(req, res)=> {
 
     } catch (error) {
         res.status(400).json({success: false, message: 'Error coming while delete product ', error})
+    }
+}
+
+module.exports.editProduct = async(req, res)=> {
+    try {
+        const data = await Product.findById(req.query.id)
+        res.status(200).json({success: true, message: 'Edit product get successfully.', data})
+    } catch (error) {
+        res.status(400).json({success: false, message: 'Error coming while edit product', error})
+    }
+}
+
+module.exports.edit = async(req, res)=> {
+    try {
+        const productimage = await Product.findById(req.query.id)
+
+        if(productimage.image){
+            const oldImage = path.join(__dirname, '../Images/Product/', productimage.image)
+            fs.unlinkSync(oldImage)
+        }
+
+        req.body.image = req.file.filename
+
+        const category = await Category.findById(req.body.category);
+        const subcategory = await Category.findById(req.body.subcategory);
+
+        if (!category || !subcategory) {
+            return res.status(404).json({ success: false, message: 'Category or Subcategory not found' });
+        }
+
+        const data = await Product.findByIdAndUpdate(req.query.id, req.body)
+        res.status(201).json({success: true, message: 'Product edited successfully.', data})
+
+    } catch (error) {
+        res.status(400).json({success: false, message: 'Error coming while edit product', error})
     }
 }

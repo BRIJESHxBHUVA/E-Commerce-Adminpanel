@@ -17,6 +17,10 @@ const AdminSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        required: true
+    },
     createdAT: {
         type: String,
         required: true

@@ -1,6 +1,8 @@
 const Admin = require('../Model/AdminSchema')
 const jwt = require('jsonwebtoken')
 const moment = require('moment')
+const path = require('path')
+const fs = require('fs')
 
 module.exports.addAdmin = async(req, res)=> {
     try {
@@ -8,6 +10,10 @@ module.exports.addAdmin = async(req, res)=> {
 
         if(useremail){
             return res.status(400).json({success: false, message: 'Email already exist.'})
+        }
+
+        if(req.file){
+            req.body.image = req.file.filename
         }
 
         req.body.createdAT = moment().format('LLLL')
