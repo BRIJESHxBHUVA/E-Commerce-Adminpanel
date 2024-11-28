@@ -4,11 +4,11 @@ import {useDispatch, useSelector} from 'react-redux'
 import { DeleteProduct, getProduct } from '../../Redux/ProductSlice'
 import {useNavigate} from 'react-router-dom'
 
-const Product = () => {
+const Product = ({ products }) => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {loading, error, products} = useSelector((state)=> state.product)
+    const {loading, error} = useSelector((state)=> state.product)
 
     useEffect(()=> {
         try {
@@ -38,8 +38,8 @@ const Product = () => {
             <div className="product-card" key={i}>
             <img src={`http://localhost:5000/Images/Product/${el.image}`} alt="" />
             <div className="product-card-details">
-                <p className='mt-2'>{el.name}</p>
-                <h5>$ {el.price}</h5>
+                <p className='mt-1'>{el.name}</p>
+                <h5>₹ {el.price}</h5>
                 <div className="buttons">
                     <button className='btn btn-danger' onClick={()=> HandleEdit(el._id)}>EDIT</button>
                     <button className='btn btn-primary' onClick={()=> HandleDelete(el._id)}>DELETE</button>
@@ -47,96 +47,7 @@ const Product = () => {
             </div>
         </div>
         )) : <p>Loading...</p>}
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-        <div className="product-card">
-            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" alt="" />
-            <div className="product-card-details">
-                <p className='mt-2'>Women Winter Jecket</p>
-                <h5>$ 1500.00</h5>
-            </div>
-        </div>
-
+       
 
     </div>
   )
