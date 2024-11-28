@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 axios.default.withCredentials = true
-const URL = 'http://localhost:5000/category'
-export const IMG_URL = 'http://localhost:5000/Images/Category'
+const URL = 'https://e-commerce-adminpanel-1.onrender.com/category'
+export const IMG_URL = 'https://e-commerce-adminpanel-1.onrender.com/Images/Category'
 
 export const getCategory = createAsyncThunk('category/getCategory', async(_, {rejectWithValue})=> {
     try {

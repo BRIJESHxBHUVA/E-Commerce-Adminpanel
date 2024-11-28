@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import './Product.css'
 import {useDispatch, useSelector} from 'react-redux'
-import { DeleteProduct, getProduct } from '../../Redux/ProductSlice'
+import { DeleteProduct, getProduct, PRODUCT_URL } from '../../Redux/ProductSlice'
 import {useNavigate} from 'react-router-dom'
 import Loading from '../Loading/Loading'
+
 
 const Product = ({ products }) => {
 
@@ -37,7 +38,7 @@ const Product = ({ products }) => {
         
         {!loading? products.map((el, i)=> (
             <div className="product-card" key={i}>
-            <img src={`http://localhost:5000/Images/Product/${el.image}`} alt="" />
+            <img src={`${PRODUCT_URL}/${el.image}`} alt="" />
             <div className="product-card-details">
                 <p className='mt-1'>{el.name}</p>
                 <h5>₹ {el.price}</h5>

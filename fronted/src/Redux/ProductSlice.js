@@ -3,7 +3,8 @@ import axios from 'axios'
 
 
 axios.default.withCredentials = true
-const URL = 'http://localhost:5000/product'
+const URL = 'https://e-commerce-adminpanel-1.onrender.com/product'
+export const PRODUCT_URL = 'https://e-commerce-adminpanel-1.onrender.com/Images/Product'
 
 export const getProduct = createAsyncThunk('product/getProduct', async(_, {rejectWithValue})=> {
     try {
