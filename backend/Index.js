@@ -6,8 +6,7 @@ const path = require('path')
 const db = require('./Database/db')
 
 const allowedOrigins = [
-    'https://e-learning-brijesh-bhuva-project.vercel.app',
-    'https://elearning-adminpanel-brijesh-bhuva-project.vercel.app'
+    'https://e-commerce-fronted-brijesh-bhuva-project.vercel.app'
 ]
 
 app.use(express.urlencoded())
