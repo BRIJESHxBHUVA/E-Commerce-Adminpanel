@@ -5,9 +5,26 @@ const cors = require('cors')
 const path = require('path')
 const db = require('./Database/db')
 
+const allowedOrigins = [
+    'https://e-learning-brijesh-bhuva-project.vercel.app',
+    'https://elearning-adminpanel-brijesh-bhuva-project.vercel.app'
+]
+
 app.use(express.urlencoded())
 app.use(express.json())
-app.use(cors())
+
+app.use(cors({
+    origin: (origin, callback)=> {
+        if(!origin) return callback(null, true);
+
+        if(allowedOrigins.includes(origin)){
+            callback(null, true)
+        }else{
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+    credentials: true
+}))
 
 app.use('/admin', require('./Routes/AdminRoutes'))
 app.use('/category', require('./Routes/CategoryRoutes'))

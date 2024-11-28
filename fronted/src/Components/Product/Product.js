@@ -3,6 +3,7 @@ import './Product.css'
 import {useDispatch, useSelector} from 'react-redux'
 import { DeleteProduct, getProduct } from '../../Redux/ProductSlice'
 import {useNavigate} from 'react-router-dom'
+import Loading from '../Loading/Loading'
 
 const Product = ({ products }) => {
 
@@ -46,7 +47,7 @@ const Product = ({ products }) => {
                 </div>
             </div>
         </div>
-        )) : <p>Loading...</p>}
+        )) : <Loading/>}
        
 
     </div>
